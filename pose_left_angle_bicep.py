@@ -80,7 +80,7 @@ class poseDetector():
         b_angle = np.abs(b_angle*180.0/np.pi)
 
         l_angle= np.arctan2(l_elbow_y-l_shldr_y, l_elbow_x-l_shldr_x)-np.arctan2(l_elbow_y-l_wrist_y, l_elbow_x-l_wrist_x)
-        l_angle = np.abs(r_angle*180.0/np.pi)
+        l_angle = np.abs(l_angle*180.0/np.pi)
 
         if l_angle>180.0:
             l_angle=360-l_angle
