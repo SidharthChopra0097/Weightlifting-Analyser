@@ -3,7 +3,7 @@ from keras.layers import Dense,Dropout
 
 # Define the neural network architecture
 model = Sequential()
-model.add(Dense(32, activation='relu', input_dim=1))
+model.add(Dense(32, activation='relu', input_dim=2))
 model.add(Dropout(0.5))
 model.add(Dense(16, activation='relu'))
 model.add(Dropout(0.5))

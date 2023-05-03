@@ -1,17 +1,21 @@
 import pandas as pd
 import numpy as np
 
-#from google.colab import drive
-#drive.mount('/content/drive')
+from google.colab import drive
+drive.mount('/content/drive')
 
 # Read in the data from the CSV file
-#right_bicep_angles_data = pd.read_csv('/content/drive/MyDrive/Bicep_right_angles.csv')
-right_bicep_angles_data = pd.read_csv('dataset/Bicep_right_angles.csv')
+right_bicep_angles_data = pd.read_csv('/content/drive/MyDrive/bicep_right_angle.csv')
 
 # Extract the body angles and labels from the data
-angles = right_bicep_angles_data.iloc[:, 0].values.reshape(-1, 1)
-labels = np.ones(len(angles)) # Set all labels to 1 since the angles are correct
+elbow_angles = right_bicep_angles_data.iloc[:, 0].values.reshape(-1, 1)
+back_angles = right_bicep_angles_data.iloc[:, 1].values.reshape(-1, 1)
 
+# Combine the two columns into a single array
+angles = np.concatenate((elbow_angles, back_angles), axis=1)
+
+# Set all labels to 1 since the angles are correct
+labels = np.ones(len(angles))
 
 # Split the data into training, validation, and test sets
 train_frac, val_frac, test_frac = 0.7, 0.2, 0.1
