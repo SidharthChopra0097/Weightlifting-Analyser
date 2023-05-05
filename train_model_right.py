@@ -13,8 +13,10 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Train the model on the training data
-history =model.fit(train_angles, train_labels, validation_data=(val_angles, val_labels), epochs=20, batch_size=10)
+history =model.fit(train_angles_right, train_labels_right, validation_data=(val_angles_right, val_labels_right), epochs=20, batch_size=10)
 
 # Evaluate the model on the test data
-loss, accuracy = model.evaluate(test_angles, test_labels)
+loss, accuracy = model.evaluate(test_angles_right, test_labels_right)
 print('Test accuracy:', accuracy)
+
+model.save('bicep_right.h5')
